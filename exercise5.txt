@@ -6,4 +6,30 @@ select * from booking where dateto is NULL;
 
 select avg(price) from room;
 
+select sum(price) from room where type = 'double';
+
+/
+
+select price , type from room JOIN hotel ON room.hotelno = hotel.hotelno WHERE hotelname = 'The Tower Hotel' ;
+
+select hotelname, guestname from hotel JOIN booking ON hotel.hotelno = booking.hotelno JOIN guest ON booking.guestno = guest.guestno  where hotelname= 'The Tower Hotel';
+
+select type, price, hotelname, guestname from room join hotel on room.hotelno = hotel.hotelno JOIN booking on booking.hotelno = hotel.hotelno JOIN guest on booking.guestno = guest.guestno where hotelname = 'The Tower Hotel';
+
+select * from room join hotel on room.hotelno = hotel.hotelno JOIN booking on booking.hotelno = hotel.hotelno JOIN guest on booking.guestno = guest.guestno where hotelname = 'The Tower Hotel';
+
+select price, datefrom, dateto from room join hotel on room.hotelno = hotel.hotelno JOIN booking ON hotel.hotelno = booking.hotelno  where hotelname = 'The Tower Hotel' and now()<dateto;
+
+/ 
+
+select booking.roomno, guestno from hotel JOIN booking ON hotel.hotelno = booking.hotelno WHERE hotelname= 'The Tower Hotel' and now()< dateto and guestno is NULL;
+
+select hotelname, count(roomno) from hotel JOIN room ON hotel.hotelno = room.hotelno where city ='London' group by hotelname ;
+
+select type, count(type) from room JOIN hotel ON room.hotelno = hotel.hotelno WHERE city = "London" group by type ORDER BY count(type) desc limit 1;
+
+select * , ((price+(price*0.05))) as room_update from room;
+
+
+
 
