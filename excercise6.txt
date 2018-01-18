@@ -1,0 +1,31 @@
+select stdFirstName , stdCity , stdGPA from student WHERE stdGPA >= 3.7;
+
+select FacFirstName , FacHireDate  from faculty WHERE year(FacHireDate) = 1999 or year(FacHireDate) = 2000;
+
+select OfferNo , CourseNo, FacSSN  from offering WHERE (OffTerm = 'FALL' and OffYear = 2005) or (OffTerm = 'WINTER' and OffYear = 2006);
+
+select OfferNo , offering.CourseNo, FacSSN, OffDays , OffTime  from offering JOIN course ON offering.CourseNo = course.CourseNo WHERE crsDesc rlike('database') OR crsDesc rlike('programming') AND OffTerm = 'SPRING' and OffYear = 2006;
+
+SELECT OfferNo , CourseNo , FacFirstName from offering JOIN faculty On offering.FacSSN = faculty.FacSSN WHERE OffTerm = 'FALL' and OffYear = 2005 AND FacRank = 'ASST';
+
+select stdMajor, avg(stdGPA)  from student group by stdMajor ;
+
+select OffYear ,count(OfferNo), count(distinct(CourseNo)) from offering GROUP BY OffYear  ;
+
+select stdMajor , avg(stdGPA) from student WHERE stdGPA > 3.1 and( stdClass = "SR" or stdClass ='JR') GROUP BY stdMajor  ;
+
+select stdMajor , stdClass, min(stdGPA), max(stdGPA) from student group by stdMajor , stdClass ;
+
+select CourseNo , crsDesc  from course WHERE CourseNo rlike('IS');
+
+select stdGPA , stdFirstName ,stdCity ,stdState from student ORDER BY stdGPA ASC;
+
+select distinct(FacCity) , FacState from faculty;
+
+select stdFirstName ,OfferNo, stdGPA from student JOIN enrollment ON student.stdSSN = enrollment.StdSSN  WHERE stdGPA  >= 3.5 ;
+
+select DISTINCT(stdFirstName) from student WHERE stdGPA >=3.5;
+
+select CourseNo , OffTime , OffDays , OffYear , OffLocation from offering JOIN enrollment ON offering.OfferNo = enrollment.OfferNo JOIN student ON student.stdSSN = enrollment.StdSSN  WHERE OffTerm = 'SPRING' and OffYear = 2006 and stdFirstName = 'BOB';
+
+
