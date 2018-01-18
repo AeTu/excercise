@@ -1,0 +1,6 @@
+$git init
+$git add *
+$git commit -m "add files from github"
+$git remote add origin https://github.com/AeTu/excercise.git
+$git remote -v
+$git push origin master

@@ -1,0 +1,9 @@
+select guestname , guestaddress, city  from guest JOIN booking ON guest.guestno = booking.guestno JOIN hotel ON booking.hotelno = hotel.hotelno WHERE city='London';
+
+select * from room where type = 'double' and price <40.0;
+
+select * from booking where dateto is NULL;
+
+select avg(price) from room;
+
+

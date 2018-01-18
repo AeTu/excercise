@@ -1,0 +1,14 @@
+ONF
+1NF: eliminate repeating groups 
+2NF: every non-prime attribute of the table is dependent on the whole key of every candidate key
+3NF: every non-prime attribute is non-Transsitively dependent on every key
+BCNF: any attribute on which some other attribute is fully functionally dependent = determinant
+
+
+1NF: drug- patient No, drug No .... onderste tabel. patient- pat_NO, first name, lastname, bedNo, wardNo, ward Name
+2NF: drug- drug No, patient No, Name, description, method of admin
+		Patientdrug -  patient No, drugNo, dosage , Units per day,start, end
+		patient- paNo, firstN,lastN, wardno
+		ward- patientNo, bedNo, wardNo, wardname
+3NF: idem 
+BCNF: 
