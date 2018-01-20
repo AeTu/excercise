@@ -12,7 +12,7 @@ db.restaurants.find({$and:[{"borough":{$ne:"Staten Island"}},{"borough":{$ne:"Br
 
 db.restaurants.find({"grades.score":{$lte:10}},{"name":1,"borough":1,"cuisine":1})
 
-/
+db.restaurants.find({"grades":{$elemMatch:{"grade":"A","score":11, "date":ISODate("2014-08-11T00:00:00Z")}}})
 
 db.restaurants.find({},{"cuisine":1,"borough":1}).sort({"cuisine":1},{"borough":-1})
 
